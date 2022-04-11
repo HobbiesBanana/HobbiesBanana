@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberDAO">
+	<insert id="insertMember" parameterType="Member">
+		INSERT INTO member(member_id, email, password, name, age, gender, tel, join_date, last_con_date, authority
+		<if test="profileImg != null">
+			, profile_img, real_img
+		</if>
+		)
+		VALUES(seq_member.nextval, #{email}, #{password}, #{name}, #{age}, #{gender}, #{tel}, sysdate, sysdate, 1
+		<if test="profileImg != null">
+			, #{profileImg}, #{realImg}
+		</if>
+		)
+	</insert>
+	
+	<select id="idCheck" parameterType="Member" resultType="Member">
+		SELECT email
+		FROM member
+		where email = #{email}
+	</select>
+	<select id="loginCheck" parameterType="Member" resultType="Member">
+		SELECT member_id, email, name, real_img , authority
+		FROM member
+		where email = #{email} and password = #{password}
+	</select>
+</mapper>

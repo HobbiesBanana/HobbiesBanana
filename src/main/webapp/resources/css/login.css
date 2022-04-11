@@ -1,0 +1,27 @@
+#logincontain {
+	display:flex;
+	margin-left: 40px;
+}
+
+#memberimg {
+	width:60px;
+	height:60px; 
+	border-radius:50%;
+	margin-right: 20px;
+}
+
+#membername {
+	display:flex;
+	align-items: center;
+	font-weight: 700;
+	margin-right:10px;
+}
+
+#logout {
+	display:flex;
+	align-items: center;
+}
+
+#logout a {
+	color:black;
+}

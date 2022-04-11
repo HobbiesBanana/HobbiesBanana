@@ -1,0 +1,151 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=BenchNine:700);
+/*관리자 메인*/
+
+.admin_video{
+			width: 100%; 
+			height: 550px; 
+			overflow: hidden; 
+			margin:0px auto; 
+			position:relative;
+			top: 180px;
+			left: 50px;
+			}
+video{
+	width:100%;
+	height: 100%;
+	position:absolute;
+}
+
+#admin_title{ position: absolute;
+				width: 100%;
+				top : 50%;
+				left : 50%;
+				transform: translate(-50%, -50%);
+				 }
+#admin_title{
+			color: black;
+			}
+#admin_title h1{
+				font-size: 50px;
+				 text-align:center;	
+				 color: white;		
+			}
+#admin_title P{
+				text-align:center;	
+				 color: white;	
+}	
+
+.admin_button{
+  background:#044425;
+  color:#e6ebe0;
+  border:none;
+  position:relative;
+  left: 70px;
+  height:50px;
+  font-size:1.0em;
+  font-weight: bold;
+  padding:0 3em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.admin_button:hover{
+  background:#e6ebe0;
+  color:#044425;
+}
+.admin_button:before,.admin_button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+.admin_button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.admin_button:hover:before,.admin_button:hover:after{
+ 													 width:100%;
+ 													 transition:800ms ease all;
+}
+
+/*관리자 페이지 기본*/
+/*사이드바*/
+.admin-total{
+			display: flex;
+			text-align: center;
+			justify-content: center;
+}
+.adminbar  {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+       width: 200px;
+       margin-right: 50px;
+   }
+   
+  div.table {
+   position : absolute;
+   top:50%;
+   left:50%;
+   transform : translate(-50%, -50%);
+   margin-bottom: 300px;
+   }
+.adminbar > li a {
+       display: block;
+       color: #000;
+       padding: 8px 16px;
+       text-decoration: none;
+   }
+.adminbar > li a.active {
+       background-color: #ef7782;
+       color: white;
+   }
+.adminbar > li a:hover:not(.active) {
+       color: #ef7782;
+   }
+.adminmain{
+		margin-right:50px;
+		margin-bottom: 300px;
+}  
+.admin_table{
+		width:900px;
+		height:auto;
+}
+.member_td1{
+			background-color: #915265;
+			color: white;
+}
+ .admin_table1{
+		width:100%;
+		height:500px;
+	   
+}
+.memberset_td1, .memberset_td3{
+		 border-bottom : 1px solid black;
+	   	 border-top: 1px solid black
+}
+.memberset_td2{
+		background-color: #0c4342;
+		color: white;
+		 border-bottom : 1px solid black;
+	   	 border-top: 1px solid black
+}
+.memberset_td3{
+	width:85px;
+	padding: 10px;
+}
+#event-text{
+			overflow:scroll;
+			width:650px;
+			height:300px;
+}
+#member_img {
+	height: 300px;
+}

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+.event_video{
+			width: 100%; 
+			height: 600px; 
+			overflow: hidden; 
+			margin:0px auto; 
+			position:relative;
+			top: 180px;
+			left: 50px;
+			padding: 0;
+}
+video{
+	width:100%;
+	height: 100%;
+	position:absolute;
+}
+
+#event_title{ position: absolute;
+				width: 100%;
+				top : 50%;
+				left : 50%;
+				transform: translate(-50%, -50%);
+				 }
+#event_title{
+			color: black;
+			}
+#event_title h1{
+				font-size: 50px;
+				 text-align:center;	
+				 color: white;		
+			}
+#event_title P{
+				text-align:center;	
+				 color: white;	
+}
+#eventImg{
+			object-fit: fill;
+			width:229px;
+			height:200px;
+}
+
+#eventmain {
+	padding-left: 125px;
+	padding-top: 50px;
+}
+
+#eventview{
+		padding-top: 50px;
+		padding-left: 110px;
+		display:flex;
+		justify-content: center;
+}
+.eventtable{
+			background-color: #FFFFF0;
+}
+#id {
+	height: 500px;
+}

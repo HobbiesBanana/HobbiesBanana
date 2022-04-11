@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="QuestionDAO">
+
+	<!-- 질문응답 리스트 -->
+	<select id="getQuestionList" resultType="hashmap">
+		SELECT q.question_id ,
+		q.write_date, q.title, q.member_id, q.content, q.answer, q.password ,
+		mem.name
+		FROM question q INNER JOIN member mem
+		ON q.member_id =
+		mem.member_id
+	</select>
+
+	<!-- 질문응답 상세보기 -->
+	<select id="getQuestionDetail" parameterType="question"
+		resultType="hashmap">
+		SELECT q.question_id ,
+		q.write_date, q.title, q.member_id,
+		q.content,
+		q.answer, q.password ,
+		mem.name
+		FROM question q INNER JOIN
+		member mem
+		ON q.member_id = mem.member_id
+		WHERE q.question_id =
+		#{questionId}
+	</select>
+
+	<!-- 질문응답 등록 -->
+	<insert id="insertQuestion" parameterType="question">
+		INSERT INTO
+		QUESTION(question_id,write_date,member_id,content,title,password)
+		VALUES(seq_test.nextval,sysdate,#{memberId},#{content},#{title},#{password})
+	</insert>
+
+	<!-- 질문응답 삭제 -->
+	<delete id="deleteQuestion" parameterType="question">
+		DELETE FROM question
+		WHERE question_id = #{questionId}
+	</delete>
+
+	<!-- 질문응답 수정값 가져오기 페이지 -->
+	<select id="getQnaDetailSelect" parameterType="question"
+		resultType="question">
+		SELECT *
+		FROM question
+		WHERE question_id = #{questionId}
+	</select>
+
+	<!-- 질문응답 수정 -->
+	<update id="updateQuestion" parameterType="question">
+		UPDATE question
+		SET
+		title = #{title}, content = #{content}, password = #{password} ,
+		write_date = sysdate
+		WHERE question_id = #{questionId}
+	</update>
+
+	<!-- 페이징 갯수 -->
+	<select id="qgetTotalCount" parameterType="hashmap" resultType="int">
+		SELECT count(*) count
+		FROM question q INNER JOIN member mem
+		ON q.member_id = mem.member_id
+		<if test="qna_search != null">
+			WHERE ${qna_search} LIKE '%${qna_searchkeyword}%'
+		</if>
+		</select>
+
+	<!-- 질문응답 리스트 페이징 -->
+	<select id="qpagingQna" parameterType="hashmap"
+		resultType="hashmap">
+		SELECT q.question_id, q.write_date, q.title, q.member_id, q.content,
+		q.answer, q.password, mem.name
+		FROM question q INNER JOIN member mem
+		ON q.member_id = mem.member_id
+		WHERE question_id in (SELECT question_id
+							FROM (SELECT rownum rnum, question_id
+								FROM (SELECT q.question_id 
+									FROM question q INNER JOIN member mem
+										ON q.member_id = mem.member_id 
+		<if test="qna_search != null">
+			WHERE ${qna_search} LIKE '%${qna_searchkeyword}%'
+		</if>
+												order by question_id))
+		WHERE <![CDATA[ rnum >= #{firstRow} and rnum <= #{endRow}) ]]>
+	</select>
+	
+	<!-- 페이징 갯수 -->
+	<select id="qgetTotalCount2" parameterType="hashmap" resultType="int">
+		SELECT count(*) count
+		FROM question
+		</select>
+
+	<!-- 질문응답 리스트 페이징 -->
+	<select id="qpaging" parameterType="hashmap"
+		resultType="hashmap">
+		SELECT q.question_id, q.write_date, q.title, q.member_id, q.content,
+		q.answer, q.password, mem.name
+		FROM question q INNER JOIN member mem
+		ON q.member_id = mem.member_id
+		WHERE question_id in (SELECT question_id
+							FROM (SELECT rownum rnum, question_id
+								FROM (SELECT q.question_id 
+									FROM question q INNER JOIN member mem
+										ON q.member_id = mem.member_id 
+		
+												order by question_id))
+		WHERE <![CDATA[ rnum >= #{firstRow} and rnum <= #{endRow}) ]]>
+	</select>
+
+	<!-- <select id="qnaSearch" resultType="hashmap" parameterType="hashmap"> 
+		SELECT * FROM question q inner join member mem on q.member_id = mem.member_id 
+		<where> <if test="qna_search != null"> ${qna_search} LIKE '%${qna_searchkeyword}%' 
+		</if> </where> ORDER BY q.question_id DESC </select> -->
+
+</mapper>

@@ -1,0 +1,206 @@
+input[type="text"] {
+	border: solid 1px #e5e5e5;
+	border-radius: 8px;
+}
+
+.titlebox {
+	font-size: 30px;
+	font: bold;
+
+}
+
+.hostbox {
+	width : 60%;
+	height: 100%;
+	background: rgb(250, 250, 250);
+	margin-top: 70px;
+	margin-left: 250px;
+	text-align: left;
+	display: flex;
+}
+
+.col-md-12 {
+	position: relative;
+	width: 100%;
+	margin-top: 200px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.col-md-13 {
+	position: relative;
+	width: 100%;
+}
+
+.col-md {
+	position: relative;
+	width: 100%;
+	padding-top: 100px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+figure a img {
+	max-width: 500px;
+	height: 200px;
+	width: 100%;
+}
+
+div.text {
+	overflow: hidden;
+}
+
+.btn {
+	border: 1px solid lightgrey;
+	width: 120px;
+	height: 60px;
+	margin-top: 50px;
+	margin-right: 15px;
+	margin-left: 15px;
+	border-radius: 5px;
+	background-color: #d4ca68;
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 1.5rem;
+}
+
+.center {
+	text-align: center;
+}
+
+.profilefix > img {
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	margin-right: 25px;
+	margin-left: 25px;
+	margin-top: 25px;
+}
+
+.bottom {
+	border-bottom: 1px solid black;
+	width: 70%;
+	display: inline-block;
+}
+
+.daybox {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 190px;
+	text-align: left;
+}
+
+#day {
+	font-size: 15px;
+	color : rgb(146, 146, 146);
+	margin-right: 25px;
+}
+
+#day1 {
+	font-size: 18px;
+}
+
+.areabox {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 190px;
+	text-align: left;
+}
+
+#area {
+	font-size: 15px;
+	color : rgb(146, 146, 146);
+	margin-right: 25px;
+}
+
+#area1 {
+	font-size: 18px;
+}
+
+.peoplebox {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 190px;
+	text-align: left;
+}
+
+#people {
+	font-size: 15px;
+	color : rgb(146, 146, 146);
+	margin-right: 25px;
+}
+
+#people1 {
+	font-size: 18px;
+}
+
+.text1 {
+	font-size: 12px;
+	margin-top: 20px;
+	color:rgb(141, 141, 141);
+	width: 570px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.hostintro {
+	margin-right: 365px;
+}
+
+.host-detail:hover {
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+.text2 {
+	font-size: 16px;
+	font : bold;
+}
+
+.text3 {
+	font-size: 13px;
+}
+
+.content {
+	width : 1000px;
+	height: 100%;
+	padding-left: 200px;
+	text-align: left;
+	font-weight: 500;
+	font-size: 18px;
+
+}
+
+#webicon1 {
+	color : black;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 18px;
+	
+}
+
+#webicon2 {
+color :	black;
+margin-left: 10px;
+margin-right: 10px;
+font-size: 18px;
+}
+
+#webicon3 {
+	margin-left: 20px;
+	font-size : 22px;
+	color : rgb(253, 97, 97)
+}
+
+.scrap {
+	margin-left: 450px;
+	background-color: white;
+	border-radius: 10px;
+	width: 70px;
+	height: 35px;
+	font-size: 10px;
+}
+
+.bxcenter {
+	margin-left: 200px;
+	text-align: center;
+}

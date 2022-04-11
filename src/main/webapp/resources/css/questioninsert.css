@@ -1,0 +1,78 @@
+body {
+    text-align: center;
+    display: block;
+}
+
+input::placeholder , textarea::placeholder{
+  color: #E6E6E6;
+  opacity: 1;
+}
+
+.content1 {
+	display: flex;
+	justify-content: center;
+	
+}
+
+.center-container {
+    width :80%;
+    height: 100%;
+    background-color: rgb(250, 250, 250);
+    display: inline-block;
+    margin-bottom: 100px;
+}
+
+.container1 {
+    width: 80%;
+    display: inline-block;
+}
+
+.container2 {
+    width: 80%;
+    display: inline-block;
+    text-align: center;
+}
+
+.questiontitle , .questioncontent {
+    width : 500px;
+    margin-left: 5px;
+}
+
+span {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.questionpass {
+    width : 240px;
+    margin-right: 288px;
+}
+
+.questioncontent {
+    width : 500px;
+    height: 200px;
+}
+
+.bottomline {
+    border-bottom: 1px solid black;
+    width: 1000px;
+}
+
+table {
+    display: inline-block;
+}
+
+div.title , div.password , div.button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button,div.button:focus {
+    margin-top: 20px;
+    border:none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    background-color: #d4ca68;
+    width: 100px;
+}

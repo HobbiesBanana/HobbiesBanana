@@ -1,0 +1,112 @@
+.tableborder1 {
+	width: 70%;
+	display: inline-block;
+	height: inherit;
+}
+
+.tableborder2 {
+	width: 70%;
+	display: inline-block;
+	margin-bottom: 50px;
+}
+
+.noticetable {
+	width: 100%;
+}
+
+.noticeno , .qnano {
+	width : 70px;
+}
+
+.noticetitle , .qnatitle {
+	width: 500px;
+}
+
+.noticewriter , .qnawriter {
+	width: 100px;
+}
+
+.noticeday , .qnaday {
+	width: 150px;
+}
+
+.noticeview , .qnaview {
+	width: 70px;
+}
+
+.noticetable th{
+	background-color: #d4ca68;
+}
+
+.noticetable td {
+ border: 1px solid rgb(225, 225, 225);
+}
+
+.qnatable {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.qnatable th{
+	background-color: #d4ca68;
+}
+
+
+.qnatable td {
+ border: 1px solid rgb(225, 225, 225);
+}
+
+div.qnawriting {
+	width: 70%;
+	display: inline-block;
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+.writingbutton{
+	margin-top: 20px;
+    border:none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    background-color: #d4ca68;
+    width: 100px;
+	font-weight: bold;
+}
+
+.noticehover:hover {
+	color: #d4ca68;
+	cursor: pointer;
+}
+
+.questionhover:hover {
+	color: #d4ca68;
+	cursor: pointer;
+}
+
+.col-md-99 {
+    display: block;
+    width: 100%;
+    margin-top: 100px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.container-searchbox {
+	width:70%;
+	text-align: right;
+	display:inline-block;
+}
+
+.searchbox {	
+	width : 200px;
+}
+
+.search-input {
+	border:none;
+    cursor: pointer;
+    outline: none;
+     background-color: #efe4af;
+     border-radius: 10px;
+     font-weight: bold;
+}

@@ -1,0 +1,163 @@
+.center {
+  display: flex;
+  justify-content: center;
+}
+.containspace {
+  height: 10px;
+}
+
+.space {
+  height: 100px;
+}
+
+.large-text {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.middle-text {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#main-container {
+  height: 100%;
+  background: #f8f9fa;
+  width: 80%;
+}
+
+.category {
+  display: flex;
+  margin-top: 20px;
+}
+
+.category-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-text .large-text {
+  margin-bottom: 15px;
+  width: 300px;
+}
+
+.category-btn {
+  margin-left: 100px;
+}
+
+.category-btn > div {
+  margin-top: 12px;
+}
+
+.category-btn input {
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+.main-content {
+  margin-top: 30px;
+}
+
+.title-contain input {
+  width: 900px;
+  margin-top: 10px;
+  margin-bottom: 80px;
+}
+
+.introduce-cotain input[type="file"] {
+  margin-bottom: 10px;
+}
+
+.introduce-cotain textarea {
+  width: 900px;
+  height: 400px;
+}
+
+.date-contect {
+  display: flex;
+}
+
+.map-contain {
+  margin-right: 60px;
+}
+
+.maptext-contain input[type="text"] {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.maptext-contain input[type="date"] {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.maptext-contain input {
+  width: 300px;
+}
+
+.membercount-contain {
+  display: flex;
+  margin-top: 30px;
+}
+
+.btn-count {
+  display: flex;
+  margin-left: 400px;
+  font-size: 30px;
+}
+
+.btn-count button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 50%;
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+}
+
+.btn-count button:hover {
+  opacity: 0.5;
+}
+
+.count {
+  width: 50px;
+  text-align: center;
+}
+
+.plus-btn {
+  margin-left: 30px;
+  background: #fff;
+}
+
+.minus-btn {
+  margin-right: 30px;
+  background: #fff;
+}
+
+.submit-contain {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#category-select {
+  width: 300px;
+}
+
+.submit-contain button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: #d4ca68;
+  width: 110px;
+  border-radius: 10px;
+}
+
+.submit-contain button[type="button"] {
+  margin-right: 10px;
+}
+
+.row {
+	margin-top: 100px;
+}

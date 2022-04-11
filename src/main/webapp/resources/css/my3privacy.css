@@ -1,0 +1,35 @@
+.list_contain{
+	margin-left: 150px;
+}
+table.tb_privacy {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 3;
+  border-left: 3px solid #B98E69;
+  margin : 20px 10px;
+}
+table.tb_privacy th {
+  width: 200px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #153d73;
+  border-bottom: 1px solid #ccc;
+
+}
+table.tb_privacy td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+#modifyBtn {
+	border-radius: 5px;
+	width: 100px;
+	height:30px;
+	cursor:pointer;
+	float: right;
+}
+
+
+

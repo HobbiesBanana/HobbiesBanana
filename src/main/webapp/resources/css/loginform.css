@@ -1,0 +1,58 @@
+button,
+button:focus {
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+#login_form {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+#login_form input {
+  width: 400px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+#login_form button {
+  width: 400px;
+  background: #fff;
+  border: 1px solid #343a40;
+  border-radius: 5px;
+}
+
+#login_form button:hover {
+  opacity: 0.5;
+}
+
+#login_form a {
+  color: #343a40;
+}
+
+#sub_form {
+  text-align: center;
+}
+
+#sub_form button {
+  margin-bottom: 20px;
+}
+
+#sub_form button:hover {
+  opacity: 0.5;
+}
+
+#sub_form a {
+  margin-bottom: 20px;
+}
+
+#sub_form a:hover {
+  opacity: 0.5;
+  color: #d4ca68;
+}
+
+#errortext {
+	color: red;
+}

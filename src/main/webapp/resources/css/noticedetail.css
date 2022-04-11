@@ -1,0 +1,44 @@
+body {
+	display: block;
+}
+
+.center-container {
+    width :80%;
+    height: 100%;
+    background-color: rgb(250, 250, 250);
+    display: inline-block;
+    margin-bottom: 100px;
+}
+
+.container1 {
+    width: 80%;
+    display: inline-block;
+}
+
+.container2 {
+    width: 80%;
+    display: inline-block;
+    border-bottom: 1px solid black;
+}
+
+.container3 {
+	display: flex;
+	justify-content: center;
+}
+
+.comenttable {
+}
+
+ th {
+	width: 100px;
+	height: 50px; 
+	text-align: justify;
+}
+
+
+ td {
+	width: 450px;
+	height: auto; 
+	text-align: left;
+}
+

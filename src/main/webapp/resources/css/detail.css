@@ -1,0 +1,84 @@
+.host-detail-container {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+}
+
+.exit-btn {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 30px;
+}
+
+.exit-btn span {
+  margin-right: 10px;
+  margin-top: 10px;
+  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.exit-btn span:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.detail-contain {
+  background: #f3f4f6;
+  border-radius: 5px;
+  box-shadow: 0 4px 16px 0 rgb (126 155 255 / 30%);
+  width: 1100px;
+  height: 100%;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.detail-contain > img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.host_name {
+  margin-top: 20px;
+}
+
+.host_introduce {
+  margin-top: 20px;
+}
+
+.rating {
+  margin-top: 20px;
+}
+
+.re-content {
+  width: 400px;
+}
+
+.detail-contain table {
+  display: flex;
+  justify-content: center;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.detail-contain table tr,
+td {
+  border-bottom: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.detail-contain table td:nth-child(1) {
+  width: 100px;
+}
+.detail-contain table td:nth-child(2) {
+  width: 50px;
+}
+.detail-contain table td:nth-child(3) {
+  width: 600px;
+}

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MypageDAO">
+	<!-- 호스트 아이디 불러오기  -->
+	<select id="selecthostid" parameterType="host" resultType="host">
+		SELECT host_id, member_id
+		FROM host
+		WHERE member_id = #{memberId}
+	</select>
+	<!-- 취미 조회 -->
+	<!-- 등록 취미 -->
+	<!-- 등록 취미 조회 -->
+	<select id="selectreghob" resultType="hashmap" parameterType="host">
+	SELECT rownum, m.title, m.reg_date, m.meeting_id, h.host_id
+	FROM meeting m inner join host h
+         on m.host_id = h.host_id
+	WHERE h.host_id = #{hostId}
+	</select>
+	<!-- 등록 취미 수정(조회) -->
+	<select id="viewmodreghob" resultType="hashmap" parameterType="meeting">
+	SELECT meeting_id, title, first_img, first_real_img, second_img, second_real_img,
+		   third_img, third_real_img, content, location, detail_location,
+		   to_char(meeting_date, 'YYYY-MM-DD') dat, to_char(meeting_time, 'HH24:MI') time, member_count, code
+	FROM meeting
+	WHERE meeting_id = #{meetingId}
+	</select>
+	<!-- 등록 취미 수정하기 -->
+	<update id="modifyreghob" parameterType="meeting">
+		UPDATE meeting SET code=#{code}, title=#{title}, content=#{content}, location=#{location}, detail_location=#{detailLocation}, meeting_date=TO_DATE(#{meetingDate},'YYYY-MM-DD'), meeting_time=TO_DATE(#{meetingTime},'HH24:MI'), member_count=#{memberCount}
+		<if test="firstImg != null">
+			, first_img=#{firstImg}, first_real_img=#{firstRealImg}
+		</if>
+		<if test="secondImg != null">
+			, second_img=#{secondImg}, second_real_img=#{secondRealImg}
+		</if>
+		<if test="thirdImg != null">
+			, third_img=#{thirdImg}, third_real_img=#{thirdRealImg}
+		</if>
+		WHERE meeting_id = #{meetingId}
+	</update>
+	<!-- 등록 취미 삭제 -->
+	<delete id="deletereghob" parameterType="meeting"> 
+	DELETE FROM meeting
+	WHERE meeting_id=#{meetingId} 
+	</delete>
+	
+	<!-- 신청 취미 -->
+	<!-- 신청 취미 조회 -->
+	<select id="selectreqhob" resultType="hashmap" parameterType="member">
+	SELECT rownum, m.title, a.approval, a.apply_id
+	FROM meeting m inner join apply_list a
+    	 on m.meeting_id = a.meeting_id
+    	 inner join member mem
+    	 on a.member_id = mem.member_id
+	WHERE mem.member_id = #{memberId}
+	</select>
+	<!-- 신청 취미 삭제 -->
+	<delete id="deletereqhob" parameterType="apply"> 
+	DELETE FROM apply_list
+	WHERE apply_id=#{applyId}
+	</delete>
+	
+	<!-- 취미 즐겨찾기 -->
+	<select id="selectwishlist" resultType="hashmap" parameterType="member">
+	SELECT rownum, m.title, c.category_name, w.wish_id
+	FROM categories c inner join meeting m
+	on c.code = m.code
+	inner join wish_list w
+	on m.meeting_id = w.meeting_id
+	inner join member mem
+	on w.member_id = mem.member_id
+	where w.member_id = #{memberId}
+	</select>
+	<!-- 취미 즐겨찾기 삭제 -->
+	<delete id="deletewishlist" parameterType="wishlist"> 
+	DELETE FROM wish_list
+	WHERE wish_id=#{wishId}
+	</delete>	
+	
+	<!-- 호스트 -->
+	<!-- 호스트 프로필 등록 -->
+	<insert id="inserthostprofile" parameterType="host">
+	INSERT INTO host(host_id, profile_img, introduce, member_id, profile_real_img)
+	VALUES(seq_host.nextval,#{profileImg},#{introduce},#{memberId},#{profileRealImg})
+	</insert>
+	<!-- 호스트 프로필 보기 -->
+	<select id="selecthostprofile" parameterType="host" resultType="host">
+	SELECT profile_img, introduce, profile_real_img, host_id
+	FROM host
+	WHERE host_id=#{hostId}
+	</select>
+	<!-- 호스트 프로필 수정 -->
+	<update id="updatehostprofile" parameterType="host"> 
+	UPDATE host SET profile_img=#{profileImg},
+					introduce=#{introduce},
+					profile_real_img=#{profileRealImg}
+	WHERE host_id=#{hostId} 
+	</update>
+	<!-- 게스트 출력하기 -->
+	<select id="selectguest" parameterType="host" resultType="hashmap">
+		SELECT rownum, m.title, mem.name, mem.gender, mem.age, mem.email
+		FROM apply_list a INNER JOIN member mem
+		ON a.member_id = mem.member_id
+		INNER JOIN meeting m
+		ON a.meeting_id = m.meeting_id
+		WHERE m.host_id = #{hostId}
+	</select>
+	<!-- 게스트 수락하기 -->
+	<update id="guestagree" parameterType="apply">
+		UPDATE apply_list SET approval='Y' WHERE member_id=#{memberId}
+	</update>
+	
+	<!-- 개인정보 -->
+	<!-- 개인정보 프로필 보기 -->
+	<select id="selectmyprofile" parameterType="member" resultType="member">
+	SELECT name, tel, email
+	FROM member
+	WHERE member_id=#{memberId}
+	</select>
+	<!-- 개인정보 프로필 수정 -->
+	<update id="updatemyprofile" parameterType="member"> 
+	UPDATE member SET name=#{name},
+					  tel=#{tel},
+					  email=#{email}
+	WHERE member_id=#{memberId} 
+	</update>
+   <!-- 회원 비밀번호 확인 -->
+   <select id="selectmember" parameterType="member" resultType="member">
+      SELECT *
+      FROM member
+      WHERE member_id=#{memberId} and password=#{password}
+   </select>
+   <!-- 탈퇴하기 -->
+   <delete id="deleteaccount" parameterType="member"> 
+	   DELETE FROM member 
+	   WHERE member_id=#{memberId}
+	   AND password=#{password}
+   </delete>
+</mapper>

@@ -1,0 +1,60 @@
+@import url('//cdn.jsdelivr.net/font-iropke-batang/1.2/font-iropke-batang.css');
+
+*{padding:0;margin:0}
+li{list-style:none}
+a{text-decoration:none;font-size:14px}
+
+.menu {
+  width: 1000px;
+  overflow: hidden;
+  margin: 120px auto;
+}
+
+.menu > li {
+  width: 20%; /*20*5=100%*/
+  float: left;
+  text-align: center;
+  line-height: 40px;
+  background-color:	#708090;
+}
+
+.menu a {
+  color: #fff;
+  font-family: 'iropke Batang', serif;
+  font-size: 1rem;
+    }
+
+.submenu > li {
+  line-height: 70px;
+  background-color:	#778899;
+  font-family: 'iropke Batang', serif;
+  }
+
+.submenu {
+  height: 0; /*ul의 높이를 안보이게 처리*/
+  overflow: hidden;
+}
+
+.menu > li:hover {
+  background-color: #778899	;
+  transition-duration: 0.1s;
+}
+
+.menu > li:hover .submenu {
+  height: 250px; /*서브메뉴 li한개의 높이 50*5*/
+  transition-duration: 1s;
+}
+
+.menubar {
+  margin-left: 450px;
+}
+
+.mypont {
+	margin-left: 350px;
+	font-weight: bold;
+	font-size: 5rem;
+}
+
+.mypagename {
+	margin-left: 350px;
+}

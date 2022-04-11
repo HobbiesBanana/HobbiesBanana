@@ -1,0 +1,66 @@
+button,
+button:focus {
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+#member_form {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.term_contain {
+  width: 520px;
+}
+
+.title_text {
+  font-size: 20px;
+  font-weight: 500;
+  border-bottom: 2px solid #3d435f;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  border-bottom: 1px solid #d8d9df;
+  height: 57px;
+}
+
+.text input {
+  margin-left: 20px;
+}
+
+.sub_text div {
+  display: flex;
+  align-items: center;
+  height: 57px;
+}
+
+.sub_text div span {
+  color: #dc3545;
+}
+
+.sub_text input {
+  margin-left: 20px;
+}
+
+.sub_text textarea {
+  width: 518px;
+  height: 150px;
+}
+
+.join_btn {
+  text-align: center;
+  margin-top: 30px;
+  width: 520px;
+  border: 1px solid#3d435f;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.join_btn:hover {
+  opacity: 0.5;
+}

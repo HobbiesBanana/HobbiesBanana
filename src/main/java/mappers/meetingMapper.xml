@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MeetingDAO">
+
+	<insert id="insertMeeting" parameterType="Meeting">
+		INSERT INTO meeting(meeting_id, title, content, location, detail_location, meeting_date, meeting_time, host_id, member_count, code, reg_date
+		<if test="firstImg != null">
+			, first_img, first_real_img
+		</if>
+		<if test="secondImg != null">
+			, second_img, second_real_img
+		</if>
+		<if test="thirdImg != null">
+			, third_img, third_real_img
+		</if>
+		)
+		VALUES(seq_meeting.nextval, #{title}, #{content}, #{location}, #{detailLocation}, TO_DATE(#{meetingDate},'YYYY-MM-DD'), TO_DATE(#{meetingTime},'HH24:MI'), #{hostId}, #{memberCount}, #{code}, sysdate
+		<if test="firstImg != null">
+			, #{firstImg}, #{firstRealImg}
+		</if>
+		<if test="secondImg != null">
+			, #{secondImg}, #{secondRealImg}
+		</if>
+		<if test="thirdImg != null">
+			, #{thirdImg}, #{thirdRealImg}
+		</if>
+		)
+	</insert>
+	
+	<select id="getMeeting" parameterType="meeting" resultType="hashmap">
+		<!--  
+		SELECT *
+		FROM meeting
+		WHERE meeting_id = #{meetingId}
+		-->
+		SELECT m.meeting_id, m.title, m.meeting_date, m.meeting_time, m.location, m.detail_location, m.member_count, m.content, m.host_id, mem.name, h.introduce, h.profile_real_img 
+		 ,m.first_real_img
+		 ,m.second_real_img
+		 ,m.third_real_img
+		FROM meeting m INNER JOIN host h
+		ON m.host_id = h.host_id
+		INNER JOIN member mem
+		ON h.member_id = mem.member_id
+		WHERE m.meeting_id = #{meetingId}
+	</select>
+	
+	<select id="getMeetingList" parameterType="meeting" resultType="hashmap">
+		SELECT m.meeting_id, m.first_real_img, m.title, m.meeting_time, m.meeting_date, m.location, m.detail_location, mem.name
+		FROM meeting m INNER JOIN host h
+		ON m.host_id = h.host_id
+		INNER JOIN member mem
+		ON h.member_id = mem.member_id
+		<if test="code!= null">
+			WHERE code = #{code}
+		</if>
+	</select>
+	
+	<insert id="insertReview" parameterType="review">
+      INSERT INTO review(review_id, member_id, content, host_id, rating)
+      VALUES(seq_review.nextval, #{member_id}, #{content}, #{host_id}, #{rating})
+   </insert>
+   
+   <select id="getReviewList" parameterType="review" resultType="review">
+      SELECT content, rating
+      FROM review
+      WHERE host_id = #{ host_id }
+   </select>
+   
+   <select id="getHostDetail" parameterType="host" resultType="hashmap">
+   	SELECT mem.name, h.introduce, h.host_id, h.profile_real_img
+   	FROM host h INNER JOIN member mem
+   	ON h.member_id = mem.member_id
+   	WHERE h.host_id = #{ hostId }
+   </select>
+   
+   <!-- 방 신청하기 -->
+   <insert id="meetingApply" parameterType="apply">
+   	INSERT INTO apply_list(member_id, meeting_id, approval, apply_id) VALUES(#{memberId}, #{meetingId}, 'N', seq_apply.nextval)
+   </insert>
+   
+   <!-- 페이징 갯수 -->
+   <select id="getTotalCount" resultType="int">
+   	SELECT COUNT(*) cnt
+   	from meeting
+   </select>
+   
+   <!-- 방 리스트 페이징 -->
+   <select id="selectMeeting" parameterType="hashmap" resultType="hashmap">
+	    <![CDATA[  
+		SELECT m.meeting_id, m.first_real_img, m.title, m.meeting_time, m.meeting_date, m.location, m.detail_location, mem.name
+		FROM meeting m INNER JOIN host h
+		ON m.host_id = h.host_id 
+		INNER JOIN member mem
+		ON h.member_id = mem.member_id
+		WHERE meeting_id in (SELECT meeting_id
+			                FROM (SELECT rownum rnum, meeting_id
+			                	  FROM (SELECT meeting_id from meeting order by meeting_id))
+			                where rnum >= #{firstRow} and rnum <= #{endRow})]]>
+		<if test="code != null">
+			and m.code = #{code}
+		</if>
+		ORDER BY meeting_id	
+		
+   </select>
+   
+   <!-- 즐겨찾기 -->
+   <insert id="insertScrap" parameterType="wishlist">
+		INSERT INTO wish_list(wish_id, member_id, host_id, meeting_id)
+		values(seq_wish.nextval, #{memberId}, #{hostId}, #{meetingId})
+	</insert>
+	
+	<!-- 호스트 아이디 검색 -->
+	<select id="selecthost" parameterType="host" resultType="host">
+		SELECT host_id
+		FROM host
+		WHERE member_id = #{memberId}
+	</select>
+	
+</mapper>
