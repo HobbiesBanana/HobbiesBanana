@@ -96,9 +96,6 @@ public class MeetingController {
 	//즐겨찾기
 	@RequestMapping("wishlistinsert.do")
 	public String insertScarp(Wishlist wish) throws IOException{
-		System.out.println(wish.getMemberId());
-		System.out.println(wish.getHostId());
-		System.out.println(wish.getMeetingId());
 		meetingService.insertScrap(wish);
 		return "Detailview";
 			
